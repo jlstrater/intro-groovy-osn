@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html lang="en" data-ng-app="main" id="ng-app" class="no-js ie"></html>
+<![endif]-->
+<!--[if IE 8]>
+<html lang="en" data-ng-app="main" id="ng-app" class="no-js ie"></html>
+<![endif]-->
+<!--[if IE 9]>
+<html lang="en" data-ng-app="main" id="ng-app" class="no-js ie9"></html>
+<![endif]-->
+<!--if [(gt IE 9)|!(IE)] <!-->
+<html ng-app="main" class="no-js">
+  <!-- <![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <title>Introduction to Groovy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Reveal JS Template">
+    <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="opi-logo"></div>
+      <div class="contact-info"></div>
+      <div class="slides">
+        <section data-state="index-slide">
+          <h2>Introduction to Groovy</h2>
+          <p>October 3, 2015</p>
+          <p><img src="./assets/img/opensourcenorth.jpg" style="border:none;width:25%;"></p><small>by Jenn Strater <a href="http://twitter.com/jennstrater" target="_blank"><img style="border:none;margin-top:0px;box-shadow:none;" src="./assets/img/CompanyAndProductLogos/twitter.png"/>@jennstrater</a></small>
+        </section>
+        <section data-state="github-slide" class="github-section">
+          <h1><i class="fa fa-icon fa-github"></i></h1>
+          <p>Current</p>
+          <p><a href="http://jlstrater.github.io/intro-groovy-osn">http://jlstrater.github.io/intro-groovy-osn</a></p>
+          <p><a href="http://github.com/jlstrater/intro-groovy-osn" target="_blank">Slides(source)</a></p>
+        </section>
+        <section>
+          <h2>About Me</h2>
+          <p>Professional</p>
+          <ul class="ul-no-style">
+            <li>
+              <img class="inline-img" src='./assets/img/opi-square-logo.png' style='vertical-align:middle;'>
+              Senior Consultant - <a href="http://objectpartners.com" target="_blank" style='vertical-align:middle'>Object Partners</a>
+            </li>
+            <li>
+              <img class="inline-img" src='./assets/img/gr8ladies.png' style='vertical-align:middle;'>
+              Co-Founder - <a href="http://www.gr8ladies.org" target="_blank" style='vertical-align:middle'>Gr8Ladies</a>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>About Me</h2>
+          <p>Experience</p><img src="./assets/img/techbooks.jpg" style="width: 60%;"><small>source: http://tjvantoll.com/2014/12/29/so-you-want-to-write-a-tech-book/</small>
+        </section>
+        <section>
+          <h2>About Me</h2>
+          <p>Minneapolis, MN</p>
+          <p><img src='./assets/img/minnesota.png' style="border:none;margin-top:-25px;"></p>
+          <ul class="ul-no-style">Connect on Social Media
+            <li><a href="https://twitter.com/jennstrater" target="_blank">Twitter</a> @jennstrater</li>
+            <li><a href="https://linkedin.com/in/jennstrater" target="_blank">LinkedIn</a> https://linkedin.com/in/jennstrater</li>
+            <li><a href="https://github.com/jlstrater" target="_blank">Github</a> https://github.com/jlstrater</li>
+          </ul>
+        </section>
+        <section>
+          <h2>About YOU</h2>
+          <ul>
+            <li>Students</li>
+            <li>Professional Developers</li>
+            <ul>
+              <li>JAVA</li>
+              <li>.NET</li>
+              <li>PHP or Ruby</li>
+              <li>JRuby, Scala, or Clojure</li>
+              <li>Groovy</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2>Agenda</h2>
+          <ul>
+            <li>Background & Ecosystem</li>
+            <li>Getting Started</li>
+            <li>Concepts</li>
+            <ul>
+              <li>Data Types</li>
+              <li>Collections/Loops</li>
+              <li>Functions</li>
+              <li>Closures</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2>Agenda</h2>
+          <ul>
+            <li>Object Oriented Programming (OOP)</li>
+            <li>Scripting</li>
+            <li>File Processing</li>
+            <li>APIs</li>
+            <li>Functional Programming</li>
+          </ul>
+        </section>
+        <section><img src="./assets/img/groovy-logo.png" style="border:none;">
+          <h2>Groovy</h2>
+          <ul>
+            <li>Dynamic, compiled language for the Java Virtual Machine(JVM).</li>
+            <li>Interoperable with existing Java libraries</li>
+            <li>Concise, easy to read code</li>
+            <li>Used by many major companies including:
+              <ul class="ul-inline">
+                <li><img src='./assets/img/CompanyAndProductLogos/netflix.jpg' class='inline-img'/></li>
+                <li><img src='./assets/img/CompanyAndProductLogos/bestBuy.jpg' class='inline-img'/></li>
+                <li><img src='./assets/img/CompanyAndProductLogos/target.png' class='inline-img'/></li>
+                <li><img src='./assets/img/CompanyAndProductLogos/wellsfargo.jpg' class='inline-img'/></li>
+                <li><img src='./assets/img/CompanyAndProductLogos/mutualOfOmaha.jpg' class='inline-img'/></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Open Source</h2>
+          <p>Apache</p>
+          <p><a href="http://groovy-lang.org" target="_blank">http://groovy-lang.org</a></p>
+          <p>To contribute: <a href="https://github.com/apache/incubator-groovy" target="_blank">https://github.com/apache/incubator-groovy</a></p>
+        </section>
+        <section>
+          <h2>The Groovy Ecosystem</h2>
+          <ul class="ul-no-style">
+            <li><img class="inline-img" src="./assets/img/CompanyAndProductLogos/grails.jpg"/><a href="http://grails.org" target="_blank"> Grails</a></li>
+            <li><img class="inline-img" src="./assets/img/CompanyAndProductLogos/griffon.jpg"/><a href="http://griffon.codehaus.org" target="_blank"> Griffon</a></li>
+            <li><img class="inline-img" src="./assets/img/CompanyAndProductLogos/gradle.jpg"/><a href="http://gradle.codehaus.org" target="_blank"> Gradle</a></li></li>
+          </ul>
+          <ul class="ul-no-style">
+            <li><img class="inline-img" src="./assets/img/CompanyAndProductLogos/missingImage.png"/><a href="https://code.google.com/p/spock/" target="_blank"> Spock</a> and <a href="http://www.gebish.org/">Geb</a></li></li>
+            <li><img class="inline-img" src="./assets/img/CompanyAndProductLogos/ratpack.jpg"/><a href="https://ratpack.io" target="_blank"> Ratpack</a></li>
+            <li><img class="inline-img" src="./assets/img/CompanyAndProductLogos/missingImage.png"/> And Many More!</li></li>
+          </ul>
+        </section>
+        <section><img src="./assets/img/groovy-stack.jpg" width="75%"></section>
+        <section>
+          <h2>When to use Groovy</h2>
+          <ul>
+            <li>existing JAVA libraries</li>
+            <li>developers know JAVA or another JVM language</li>
+            <li>quick prototyping</li>
+            <li>scripting</li>
+            <li>writing tests</li>
+          </ul>
+        </section>
+        <section>
+          <h2>When Not to use Groovy</h2>
+          <ul>
+            <li>lots of legacy code in another language</li>
+            <li>need 'bare metal' level performance</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Getting Started</h2>
+        </section>
+        <section>
+          <ul>
+            <li>Download Locally</li>
+            <p><a href="http://groovy-lang.org/download.html" target="_blank">http://groovy-lang.org/download.html</a></p>
+            <li>SDK Manager (formerly GVM)<a href="http://sdkman.io/">http://sdkman.io/</a>
+              <pre><code>curl -s get.sdkman.io | bash</code></pre>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Groovy Shell</h2><img src="./assets/img/groovy-shell.png">
+        </section>
+        <section>
+          <h2>Groovy Console</h2><img src="./assets/img/groovy-console.png">
+        </section>
+        <section>
+          <h2>Web Console</h2>
+          <p><a href="http://groovyconsole.appspot.com/" target="_blank">http://groovyconsole.appspot.com/</a></p>
+        </section>
+        <section>
+          <h2>Things to Remember</h2>
+          <ol>
+            <li>There is more than one way to do almost anything.</li>
+            <li>It's probably optional.
+              <ul>
+                <li>semi-colons</li>
+                <li>typing</li>
+                <li>parenthesis around parameters</li>
+                <li>return statements</li>
+              </ul>
+            </li>
+            <li>By default, the last command executed is what's returned.</li>
+          </ol>
+        </section>
+        <section>
+          <h2>Hello, World!</h2>
+          <pre><code>groovy>println "Hello, Open Source North!"
+
+Hello, Open Source North!
+===>null</code></pre>
+        </section>
+        <section>
+          <h2>Strings</h2>
+          <p>(examples in console)</p>
+          <ul>
+            <li>Single Quoted</li>
+            <li>Double Quoted</li>
+            <li>Multi-line</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Collections</h2>
+        </section>
+        <section>
+          <h2>Lists</h2>
+          <p>(examples in console)</p>
+          <ul>
+            <li></li>
+          </ul>
+        </section>
+        <section>
+          <h2>Conclusions</h2>
+          <ul>Groovy
+            <li>provides the benefits of the JVM platform</li>
+            <li>adds features to enhance productivity over JAVA</li>
+            <li>is similar to other languages such as Ruby and Python</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Questions?</h3>
+          <p><a href="http://twitter.com/jennstrater" target="_blank"><img style="border:none;margin:0px;box-shadow:none;" src="./assets/img/CompanyAndProductLogos/twitter.png"/>@jennstrater</a></p>
+          <p>jenn@gr8ladies.org</p>
+        </section>
+        <section>
+          <h2>References</h2>
+          <ul>
+            <li>Groovy in Action, 2nd Edition</li>
+            <li><a href="http://groovy-lang.org" target="_blank">groovy-lang.org</a></li>
+          </ul>
+        </section>
+      </div>
+    </div>
+    <script src="./assets/js/app.js"></script>
+    <!-- If the query includes 'print-pdf', use the PDF print sheet-->
+    <script type="text/javascript">
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './assets/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      } else if ( window.location.search.match( /print-paper/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './assets/css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+      
+    </script>
+  </body>
+</html>
