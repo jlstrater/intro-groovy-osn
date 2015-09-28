@@ -113,18 +113,7 @@ module.exports = function (grunt) {
             dest: 'dist/assets/css/print'
           }
         ]
-      },
-      previousVersions: {
-        files: [
-          {
-            expand: true,
-            cwd: 'src/Gr8ConfEU2015',
-            src: ['**'],
-            dest: 'dist/Gr8ConfEU2015'
-          }
-        ]
       }
-
     },
 
     watch: {
@@ -176,5 +165,4 @@ module.exports = function (grunt) {
   grunt.registerTask('assemble', ['clean:pre', 'less', 'cssmin', 'concat', 'uglify', 'jade', 'copy', 'clean:post']);
   grunt.registerTask('run', ['connect', 'watch']);
   grunt.registerTask('publish', ['assemble', 'shell:publish']);
-
 };
