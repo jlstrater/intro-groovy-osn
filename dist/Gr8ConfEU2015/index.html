@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html lang="en" data-ng-app="main" id="ng-app" class="no-js ie"></html>
+<![endif]-->
+<!--[if IE 8]>
+<html lang="en" data-ng-app="main" id="ng-app" class="no-js ie"></html>
+<![endif]-->
+<!--[if IE 9]>
+<html lang="en" data-ng-app="main" id="ng-app" class="no-js ie9"></html>
+<![endif]-->
+<!--if [(gt IE 9)|!(IE)] <!-->
+<html ng-app="main" class="no-js">
+  <!-- <![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <title>Introduction to Groovy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Reveal JS Template">
+    <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="opi-logo"></div>
+      <div class="slides">
+        <section data-state="index-slide">
+          <h2 style="color:white; margin-top:42%">Introduction to Groovy</h2><small style="color:white;">by Jenn Strater <a href="http://twitter.com/jennstrater" target="_blank"><img style="border:none;margin-top:0px;box-shadow:none;" src="./assets/img/CompanyAndProductLogos/twitter.png"/>@jennstrater</a></small>
+        </section>
+        <section data-state="github-slide" class="github-section">
+          <h1><i class="fa fa-icon fa-github"></i></h1>
+          <p><a href="http://jlstrater.github.io/Restful-Grails3">http://jlstrater.github.io/Restful-Grails3</a></p>
+          <p><a href="http://github.com/jlstrater/restful-grails-3" target="_blank">Slides(source)</a></p>
+        </section>
+        <section>
+          <h2>About Me</h2>
+          <p>Professional</p>
+          <ul>
+            <li>Senior Consultant - <a href="http://objectpartners.com" target="_blank">Object Partners</a></li>
+            <li>Full Stack Engineer</li>
+            <li>Co-Founder - <a href="http://www.gr8ladies.org" target="_blank">Gr8Ladies</a></li>
+          </ul>
+        </section>
+        <section>
+          <h2>About Me</h2>
+          <p>Minneapolis, MN</p>
+          <p><img style="border:none;margin-top:-25px;" src="./assets/img/minnesota.png"/></p>
+          <ul class="ul-no-style">Connect on Social Media
+            <li><a href="https://twitter.com/jennstrater" target="_blank">Twitter</a> @jennstrater</li>
+            <li><a href="https://linkedin.com/in/jennstrater" target="_blank">LinkedIn</a> https://linkedin.com/in/jennstrater</li>
+            <li><a href="https://github.com/jlstrater" target="_blank">Github</a> https://github.com/jlstrater</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Agenda</h2>
+          <ul>
+            <li>Remedial REST</li>
+            <li> Ways To Improve A RESTful API</li>
+            <ul>
+              <li>with Grails Examples</li>
+            </ul>
+            <li>Related Grails Plugins</li>
+          </ul>
+        </section>
+        <section>
+          <h2>What this talk will NOT cover</h2>
+          <ul>
+            <li>Scalability of Grails APIs</li>
+            <li>Security</li>
+            <li>Ingesting RESTful APIs</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Remedial REST</h2>
+        </section>
+        <section>
+          <h2>Terminology</h2>
+          <ul>
+            <li>Application Programming Interface (API)</li>
+            <li>Web Service</li>
+            <li>Representational State Transfer (REST)</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Definition</h2>
+          <blockquote>
+            <b>RE</b>presentational <b>S</b>tate <b>T</b>ransfer (REST) is an architectural style that
+            describes how distributed data objects, or resources, can be defined and addressed, stressing the easy exchange
+            of information and scalability.<ital>(Fischer 2013.)</ital>
+          </blockquote>
+          <aside class="notes">
+            <NOT>a standard or specification</NOT>
+          </aside>
+        </section>
+        <section>
+          <h2>History</h2>
+          <p>Described in Roy Fielding's 2000 PhD dissertation</p><small>Fielding, Roy. <ital><a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm">Architectural Styles and the Design of Network-based Software Architectures<ital></a>. 2000.</small>
+        </section>
+        <section>
+          <h2>Goals</h2>
+          <ul>
+            <li>To create a uniform interface between components</li>
+            <li>Decouple implementations from the underlying services</li>
+          </ul>
+        </section>
+        <section>
+          <h1>Characteristics</h1>
+        </section>
+        <section>
+          <h2>Uniform Interface</h2>
+          <ul>
+            <li>Individual Resources are identified using URIs</li>
+            <li>Resources are abstracted from the data source and can be manipulated before being sent to a client</li>
+            <li><b>Hypermedia As The Engine Of Application State (HATEOAS)</b></li>
+          </ul>
+        </section>
+        <section>
+          <h2>Stateless</h2>
+          <ul>Self-contained and independent requests
+            <li>Improves scalability</li>
+            <li>Allows for parallel processing of requests</li>
+            <li>Lets resources be viewed in isolation</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Client-Server</h2>
+          <ul>Decoupled clients and servers
+            <li>Increases portability</li>
+            <li>Easier to scale</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Layered System</h2>
+          <ul>Endpoints can be the terminus or an intermediary service
+            <li>Allows for load balancing and intermediate security enforcers</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Why choose REST?</h2>
+          <ul>
+            <li>Easy to implement</li>
+            <li>Usable across many different platforms and languages</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Why REST and Grails?</h2>
+          <p class="fragment">Many helpful defaults</p>
+          <ul class="fragment">Other advantages of Grails
+            <li>Ease of development</li>
+            <li>Shorter development time</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Questions about REST?</h2>
+        </section>
+        <section>
+          <h2>Ways To Improve A RESTful API</h2>
+          <h3>(with Grails)</h3>
+        </section>
+        <section>
+          <h2>Scope</h2>
+          <p>De-coupled server and client</p>
+          <p>NO GSPs!</p>
+        </section>
+        <section>
+          <h2>New in Grails 3</h2>
+          <ul>
+            <li>Based on Spring Boot</li>
+            <li>Switched to Gradle for build system</li>
+            <li>Major structural changes</li>
+            <ul>
+              <li>Configuration</li>
+              <li>Scripts</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2>Getting Started</h2>
+          <p>Resource Transformation</p>
+          <pre><code class="java">import grails.rest.Resource
+
+@Resource(uri='/gr8ladies')
+class Gr8Lady {
+  String first
+  String last
+}</code></pre>
+        </section>
+        <section>
+          <h2>Getting Started</h2>
+          <p>URL mappings</p>
+          <pre><code class="java">URLmappings.groovy
+
+"/gr8ladies"(resources:"gr8lady")</code></pre>
+          <p>Or</p>
+          <pre><code class="java">"/gr8ladies"(resources:"gr8lady") {
+  "/chapter"(controller:"chapter", method:"GET")
+}</code></pre><small>--> /gr8ladies/{id}/chapter</small>
+        </section>
+        <section>
+          <h2>HTTP Status Codes</h2>
+          <ul>
+            <li>200 is ok ... but not for everything</li>
+          </ul>
+        </section>
+        <section>
+          <h2>HTTP Status Codes</h2>
+          <p>Learn the correct status codes for different errors</p>
+          <table align="center">
+            <tr>
+              <th>Code</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <th>2XX</th>
+              <th>Successful</th>
+            </tr>
+            <tr>
+              <td>200</td>
+              <td>OK</td>
+            </tr>
+            <tr>
+              <th>4XX</th>
+              <th>Client Error</th>
+            </tr>
+            <tr>
+              <td>400</td>
+              <td>Bad Request</td>
+            </tr>
+            <tr>
+              <td>403</td>
+              <td>Forbidden</td>
+            </tr>
+            <tr>
+              <td>404</td>
+              <td>Not Found</td>
+            </tr>
+            <tr>
+              <th>5XX</th>
+              <th>Server Errors</th>
+            </tr>
+            <tr>
+              <td>500</td>
+              <td>Internal Server Error</td>
+            </tr>
+            <tr>
+              <td>502</td>
+              <td>Bad Gateway</td>
+            </tr>
+          </table><small><span>an exerpt from</span><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html" target="_blank">http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</a></small>
+        </section>
+        <section>
+          <h2>HTTP Status Codes in Grails</h2>
+          <p>Many of the cases are handled by Grails or the server(i.e. 5XXs)</p>
+          <pre><code class="java">if(someCondition) {
+  render status: 4XX
+}</code></pre>
+        </section>
+        <section>
+          <h2>HTTP verbs</h2>
+          <ul>
+            <li>GET to retrieve a resource</li>
+            <li>POST to create a new resource</li>
+            <li>PUT to update an existing resource</li>
+            <li>DELETE to remove an existing resource</li>
+          </ul>
+        </section>
+        <section>
+          <h2>HTTP verbs in Grails</h2>
+          <h3>Resource Annotation</h3>
+          <p class="fragment">Handled by Default! :)</p>
+        </section>
+        <section>
+          <h2>HTTP verbs in Grails</h2>
+          <p>On each Controller</p>
+          <pre><code class="java">class Gr8LadyController {
+  static allowedMethods = [list: "GET", save: "POST", update: "PUT"]
+}</code></pre>
+        </section>
+        <section>
+          <h2>HTTP verbs in Grails</h2>
+          <p>URL Mappings</p>
+          <pre><code class="java">"/gr8ladies"(resource: "gr8lady", method: "GET")</code></pre>
+        </section>
+        <section>
+          <h2>Endpoints</h2>
+          <h3>List</h3>
+          <p><code class="http">http://example.com/resource</code></p>
+          <h3>Show</h3>
+          <p><code class="http">http://example.com/resource/{id}</code></p>
+        </section>
+        <section>
+          <h2>Endpoints</h2>
+          <ul>
+            <li><code class="http">http://example.com/resource/{id}</code></li>
+            <li class="fragment">NOT <code class="http">http://example.com/resource?id=abc123</code></li>
+            <li class="fragment">NOT <code class="http">http://example.com/resource/{id}/?action=delete</code></li>
+            <li class="fragment">NOT <code class="http">http://example.com/resource/add</code></li>
+          </ul>
+        </section>
+        <section>
+          <h2>Consistent Style</h2>
+          <h3>casing</h3>
+          <p><code class="http">/resources</code></p>
+          <p>NOT</p>
+          <p><code class="http">/ReSoUrCeS</code></p>
+        </section>
+        <section>
+          <h2>Consistent URI style</h2>
+          <p>Try Either:</p>
+          <p><code class="http">/multiWordResources</code></p>
+          <p>Or:</p>
+          <p><code class="http">/multi-word-resources</code></p>
+          <p>And stick to it. Don't Mix and Match!</p>
+        </section>
+        <section>
+          <h2>Consistent Style</h2>
+          <h3>Resource Names</h3>
+          <p>plural nouns preferred</p><code>http://example.com/users</code>
+          <p>vs</p><code>http://example.com/user</code>
+        </section>
+        <section>
+          <h2>Search</h2>
+          <ul><code>http://example.com/resource?fieldName=value</code>
+            <li>Lookup based on values</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Multiple Media Types (JSON, XML)</h2>
+          <ul>
+            <li>XML and JSON are most common</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Multiple Media Types (JSON, XML) in Grails</h2>
+          <ul>
+            <li>XML by default</li>
+            <li>
+              <p>By Parameter</p><code>http://example.com/resource.json</code>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Multiple Media Types (JSON, XML) in Grails</h2>
+          <p>Available formats</p>
+          <pre><code class="java">grails:
+  mime:
+    types:
+    ...
+    json: ['application/json', 'text/json'],
+    ...
+    xml: ['text/xml', 'application/xml']</code></pre>
+        </section>
+        <section>
+          <h2>Multiple Media Types (JSON, XML) in Grails</h2>
+          <p>By Resource</p>
+          <pre><code class="java">import grails.rest.Resource
+
+@Resource(uri='/gr8ladies', formats=['json'])
+class Gr8Lady {
+  ...
+}</code></pre>
+          <p>Requesting another type returns a 406 (Not Acceptable)</p>
+        </section>
+        <section>
+          <h2>Multiple Media Types (JSON, XML) in Grails</h2>
+          <p>By RestfulController</p>
+          <pre><code>class Gr8LadyController extends RestfulController {
+  static responseFormats = ['json', 'xml']
+}</code></pre>
+          <p>Remember to add any response formats for versioned mime types</p>
+        </section>
+        <section>
+          <h2>Custom Response Formats</h2>
+          <ul>
+            <li>Filter from default responses</li>
+            <li>Provide different responses per version</li>
+            <li>Provide response formats based on security</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Custom Response Formats in Grails</h2>
+          <p>Object Marshallers</p>
+          <p><code>grails-app/init/Bootstrap.groovy</code></p>
+          <pre><code class="java">import grails.converters.JSON
+
+class Bootstrap {
+  def init = { servletContext ->
+    JSON.registerObjectMarshaller(Gr8Lady) {
+      def returnArray = [:]
+      returnArray['firstName'] = it.first
+      returnArray['lastName'] = it.last
+      returnArray['chapter'] = it.chapter?.name
+      return returnArray
+    }
+  }
+}</code></pre>
+          <p>Usage</p>
+          <pre><code>render gr8lady as JSON</code></pre>
+        </section>
+        <section>
+          <h2>Custom Response Formats in Grails</h2>
+          <p>Object Marshallers</p>
+          <p><code>grails-app/conf/spring/resources.groovy</code></p>
+          <pre><code class="java">import grails.converters.JSON
+import org.gr8ladies.ChapterMarshaller
+
+beans = {
+    JSON.registerObjectMarshaller(new ChapterMarshaller())
+}</code></pre>
+        </section>
+        <section>
+          <h2>Custom Response Formats in Grails</h2>
+          <p>Object Marshallers</p>
+          <pre><code>class Gr8LadyMarshaller implements ObjectMarshaller&#60JSON&#62{
+    public boolean supports(Object object) {
+      return object instanceof Gr8Lady
+    }
+    
+    public void marshalObject(Object object, XML converter) {
+      Gr8Lady gr8lady  = (Gr8Lady)object
+      converter.chars gr8lady.displayName
+    }
+}</code></pre>
+        </section>
+        <section>
+          <h2>Hypermedia As The Engine Of Application State (HATEOAS)<sup>*</sup></h2>
+          <p>link to the resource and navigation</p>
+          <pre><code class="javascript">{
+  "_links": {
+    "self": { "href": "/gr8ladies" },
+    "next": [
+      { "href": "/gr8ladies?page=2" }
+    ]
+  }
+}</code></pre>
+        </section>
+        <section>
+          <h2>HATEOAS in Grails</h2>
+          <ul>
+            <li>JSON</li>
+            <li>Hypertext Application Language (HAL)</li>
+            <p><code>grails-app/conf/spring/resources.groovy</code></p>
+            <pre><code>import grails.rest.render.hal.*
+beans = {
+    halGr8LadyRenderer(HalJsonRenderer, org.gr8ladies.Gr8Lady)
+}</code></pre>
+          </ul>
+        </section>
+        <section>
+          <h2>HATEOAS in Grails</h2>
+          <p>Usage: Content Negotiation</p>
+          <p><code>curl -i -H "Accept: application/hal+json" http://localhost:8080/gr8ladies/1</code></p>
+          <pre><code>HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Content-Type: application/hal+json;charset=ISO-8859-1
+
+{
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/gr8ladies/1",
+      "hreflang": "en",
+      "type": "application/hal+json"
+    }
+  },
+  "name": ""Grace Hopper""
+}</code></pre>
+        </section>
+        <section>
+          <h2>Pagination<sup>*</sup></h2>
+          <p>Parameters</p>
+          <p><code>http://example.com/resource?offset=0&max=10</code></p>
+          <pre><code>def list() {
+  List gr8ladies = Gr8Lady.list(max: params.max, offset: params.offset)
+  respond [results: gr8ladies, max: params.max, offset: params.offset]
+}</code></pre>
+        </section>
+        <section>
+          <h2>Versioning<sup>*</sup></h2>
+          <ul>
+            <li><b>URI</b> <code class="http">http://example.com/v1/resource/{id}</code></li>
+            <li><b>Custom Header</b></li>
+            <li>
+              <pre><code class="http">GET https&#58;&#47;&#47;example.com/resource
+version&#58; 2.0</code></pre>
+            </li>
+            <li><b>Content Type</b></li>
+            <li>
+              <pre><code class="http">GET https&#58;&#47;&#47;example.com/resource
+Accept&#58; application/vnd.example.v2+json</code></pre>
+            </li>
+          </ul>
+          <aside class="notes">
+            If you really can't use hypermedia, please at least version your API. There are several ways to do this, each
+            with their own pros and cons.  The easiest to implement is to add /v1/ to the URI.  However, this breaks theory
+            since the URI is no longer just about the resource data.  Be careful if you choose this route as it can cause
+            confusion when some resources are at various version numbers (ie http://example.com/v2/parentResource/v1/childResource).
+            Another option is to add the version number to the headers. This maintains the purity of the URI, but makes it
+            harder for consumers of the API. You can't just have a one button/link for the GET request.  The last option
+            is to specify the version number in the accept header.
+          </aside>
+        </section>
+        <section>
+          <h2>Versioning in Grails</h2>
+          <ul>
+            <ul><b>URI</b>
+              <li><code class="http">@Resource(uri='/gr8ladies/v1')</code></li>
+              <li><code class="http">@Resource(uri='/gr8ladies/v2')</code></li>
+            </ul>
+            <ul><b>Accept Header</b>
+              <li><code class="http">"/gr8ladies"(version:'1.0', resources:"gr8lady", namespace: 'v1')</code></li>
+              <li><code class="http">"/gr8ladies"(version:'2.0', resources:"gr8lady", namespace: 'v2')</code></li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2>Read-only Mode</h2>
+          <ul>
+            <li>for public APIs (or security)</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Read-only Mode in Grails</h2>
+          <pre><code>@Resource(uri="/gr8ladies", readOnly=true)
+class Gr8Lady {
+  String first
+  ...
+}</code></pre>
+        </section>
+        <section>
+          <h2>Related Plugins for other Grails versions</h2>
+        </section>
+        <section>
+          <h2>Spring Security REST Plugin</h2>
+          <p>Token based Authentication based on Spring-Security</p>
+          <p><img class="inline-thumb" src="./assets/img/active-icon.png"/></p>
+          <p>Last Updated May 2015</p>
+          <p><a href="https://github.com/alvarosanchez/grails-spring-security-rest">Source & Documentation</a></p>
+        </section>
+        <section>
+          <h2>Restful API Plugin</h2>
+          <p>Last Updated November 2014</p>
+          <p><a href="https://github.com/restfulapi/restful-api">Source & Documentation</a></p>
+        </section>
+        <section>
+          <h2>Rest Renderer</h2>
+          <p>Last Updated February 2014</p>
+          <p><a href="https://github.com/danveloper/grails-rest-renderers">Source & Documentation</a></p>
+        </section>
+        <section>
+          <h2>Conclusions</h2>
+          <ul>
+            <li>REST is an architecture style, not a standard</li>
+            <li>There are many ways to implement REST</li>
+            <li>Grails makes REST easy with <code>@Resource</code>!</li>
+            <li>Don't reinvent the wheel, use standard practices.</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Questions?</h3><img src='./assets/img/halofunnyface.jpg' style="border:none;margin:0px;">
+          <img src='./assets/img/pumpkinloaf.jpg' style="border:none;">
+          <img src='./assets/img/upsidedownpumpkin.jpg' style="border:none;">
+          <img src='./assets/img/halopanic.jpg' style="border:none;margin:0px;">
+        </section>
+        <section>
+          <h2>References</h2>
+          <ul class="ul-no-style">
+            <li>Kay, Russell. <a href="http://www.computerworld.com/article/2552929/networking/representational-state-transfer--rest-.html">"Representational State Transfer (REST)"</a>. <ital>Computerworld</ital>. 6 Aug 2007. Web</li>
+            <li>Fischer, Ludovico. <a href="http://code.tutsplus.com/tutorials/a-beginners-guide-to-http-and-rest--net-16340">"A Beginner’s Guide to HTTP and REST"</a>. <ital>Tuts+</ital>. 9 Jan 2013. Web</li>
+            <li>Fielding, Roy. <ital><a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm">Architectural Styles and the Design of Network-based Software Architectures<ital></a>. 2000.</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+    <script src="./assets/js/app.js"></script>
+    <!-- If the query includes 'print-pdf', use the PDF print sheet-->
+    <script type="text/javascript">
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './assets/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      } else if ( window.location.search.match( /print-paper/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './assets/css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+      
+    </script>
+  </body>
+</html>
