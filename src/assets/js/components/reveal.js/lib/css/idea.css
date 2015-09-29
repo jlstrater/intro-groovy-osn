@@ -35,21 +35,21 @@ pre .doctype {
   color: #808000;
 }
 
-pre .tag,
-pre .pi {
-  background: #efefef;
-}
+/*pre .tag,*/
+/*pre .pi {*/
+  /*background: #efefef;*/
+/*}*/
 
-pre .keyword,
-pre .tag,
-pre .django .tag,
-pre .django .keyword,
-pre .css .class,
-pre .css .id,
-pre .lisp .title {
-  font-weight: bold;
-  color: #000080;
-}
+/*pre .keyword,*/
+/*pre .tag,*/
+/*pre .django .tag,*/
+/*pre .django .keyword,*/
+/*pre .css .class,*/
+/*pre .css .id,*/
+/*pre .lisp .title {*/
+  /*font-weight: bold;*/
+  /*color: #000080;*/
+/*}*/
 
 pre .number,
 pre .date {
