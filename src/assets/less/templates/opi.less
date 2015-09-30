@@ -6,6 +6,7 @@
 @text-color:                  #333;
 
 @logo-width:                  742px;
+@logo-width-square:           267px;
 @logo-height:                 267px;
 @logo-default-scale:          0.3;
 @logo-default-opacity:        0.5;
@@ -53,25 +54,6 @@ body {
 }
 
 .index-slide .opi-logo {
-  left: -@logo-width + 50px;
-  opacity: @logo-default-opacity;
-}
-
-.reveal .contact-info {
-  position: fixed;
-  bottom: 50px;
-  left: 50px;
-  width: floor(@logo-width * @logo-default-scale);
-  height: floor(@logo-height * @logo-default-scale);
-  background-image: url('../img/contact-info.png');
-  background-repeat: no-repeat;
-  background-position:left top;
-  background-size: 100%;
-  opacity: @logo-default-opacity;
-  .transition(~"left 0.7s ease, opacity 0.7s ease");
-}
-
-.index-slide .contact-info {
   left: -@logo-width + 50px;
   opacity: @logo-default-opacity;
 }

@@ -21,6 +21,7 @@ html(class="no-js", ng-app="main")
     .reveal
       .opi-logo
       .contact-info
+      .osn-logo
       .slides
         section(data-state="index-slide")
           h2 Introduction to Groovy
@@ -89,7 +90,6 @@ html(class="no-js", ng-app="main")
             li Scripting
             li File Processing
             li APIs
-            li Functional Programming
         section
           img(src='./assets/img/groovy-logo.png', style="border:none;")
           h2 Groovy
@@ -508,20 +508,41 @@ html(class="no-js", ng-app="main")
              -> Hi,
              -> Open Source North!</code>
         section
-          h2 APIs
-          p (copy to console)
-          pre.
-            <code>@Grab(group='org.codehaus.groovy.modules.http-builder', module='http-builder', version='0.7.1')
-
-            import groovyx.net.http.RESTClient
-
-            def http = new RESTClient("http://api.icndb.com")
-
-            http.get(path: '/jokes/random/5', query: [exclude: 'explicit']) { resp, reader ->
-              reader.value.joke.each{
-                println it + '\n'
+          section
+            h2 APIs
+            p (copy to console)
+            pre.
+              <code>@Grab(group='org.codehaus.groovy.modules.http-builder', module='http-builder', version='0.7.1')
+              import groovyx.net.http.RESTClient
+              def http = new RESTClient("http://www.gr8ladies.org")
+              http.get(path: '/api/companies') { resp, reader ->
+                 reader.sort { -it.percentageTotalWomen } // sort by percentage women in descending order
+                 reader[0..4].each{ // only the first 5
+                 if(it.totalEmployees) { // if the value of total employees is not 0 (to eliminate companies that didn't report that field)
+                     println 'name:' + it.name
+                     println 'country:' + it.country
+                     println 'total employees: ' + it.totalEmployees
+                     println 'total men: '+ it.totalMen
+                     println 'total women: '+ it.totalWomen + '\n'
+                 }
+               }
               }
-            }</code>
+              return null // don't print the entire result at the end</code>
+          section
+            h2 APIs
+            p (copy to console)
+            pre.
+              <code>@Grab(group='org.codehaus.groovy.modules.http-builder', module='http-builder', version='0.7.1')
+
+              import groovyx.net.http.RESTClient
+
+              def http = new RESTClient("http://api.icndb.com")
+
+              http.get(path: '/jokes/random/5', query: [exclude: 'explicit']) { resp, reader ->
+                reader.value.joke.each{
+                  println it + '\n'
+                }
+              }</code>
         section
           h2 Conclusions
           ul Groovy

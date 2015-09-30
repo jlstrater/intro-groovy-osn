@@ -24,6 +24,7 @@
     <div class="reveal">
       <div class="opi-logo"></div>
       <div class="contact-info"></div>
+      <div class="osn-logo"></div>
       <div class="slides">
         <section data-state="index-slide">
           <h2>Introduction to Groovy</h2>
@@ -99,7 +100,6 @@
             <li>Scripting</li>
             <li>File Processing</li>
             <li>APIs</li>
-            <li>Functional Programming</li>
           </ul>
         </section>
         <section><img src="./assets/img/groovy-logo.png" style="border:none;">
@@ -545,9 +545,30 @@ myFile.eachLine { line ->
  -> Open Source North!</code></pre>
         </section>
         <section>
-          <h2>APIs</h2>
-          <p>(copy to console)</p>
-          <pre><code>@Grab(group='org.codehaus.groovy.modules.http-builder', module='http-builder', version='0.7.1')
+          <section>
+            <h2>APIs</h2>
+            <p>(copy to console)</p>
+            <pre><code>@Grab(group='org.codehaus.groovy.modules.http-builder', module='http-builder', version='0.7.1')
+import groovyx.net.http.RESTClient
+def http = new RESTClient("http://www.gr8ladies.org")
+http.get(path: '/api/companies') { resp, reader ->
+   reader.sort { -it.percentageTotalWomen } // sort by percentage women in descending order
+   reader[0..4].each{ // only the first 5
+   if(it.totalEmployees) { // if the value of total employees is not 0 (to eliminate companies that didn't report that field)
+       println 'name:' + it.name
+       println 'country:' + it.country
+       println 'total employees: ' + it.totalEmployees
+       println 'total men: '+ it.totalMen
+       println 'total women: '+ it.totalWomen + '\n'
+   }
+}
+}
+return null // don't print the entire result at the end</code></pre>
+          </section>
+          <section>
+            <h2>APIs</h2>
+            <p>(copy to console)</p>
+            <pre><code>@Grab(group='org.codehaus.groovy.modules.http-builder', module='http-builder', version='0.7.1')
 
 import groovyx.net.http.RESTClient
 
@@ -558,6 +579,7 @@ http.get(path: '/jokes/random/5', query: [exclude: 'explicit']) { resp, reader -
     println it + '\n'
   }
 }</code></pre>
+          </section>
         </section>
         <section>
           <h2>Conclusions</h2>
