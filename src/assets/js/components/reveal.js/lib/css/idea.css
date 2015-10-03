@@ -81,17 +81,17 @@ pre .tex .formula {
   font-weight: bold;
 }
 
-pre .dos .winutils,
-pre .ruby .symbol,
-pre .ruby .symbol .string,
-pre .ruby .symbol .keyword,
-pre .ruby .symbol .keymethods,
-pre .ruby .string,
-pre .ruby .instancevar {
-  color: #000;
-  background: #d0eded;
-  font-style: italic;
-}
+/*pre .dos .winutils,*/
+/*pre .ruby .symbol,*/
+/*pre .ruby .symbol .string,*/
+/*pre .ruby .symbol .keyword,*/
+/*pre .ruby .symbol .keymethods,*/
+/*pre .ruby .string,*/
+/*pre .ruby .instancevar {*/
+  /*color: #000;*/
+  /*background: #d0eded;*/
+  /*font-style: italic;*/
+/*}*/
 
 pre .django .template_tag,
 pre .django .variable,

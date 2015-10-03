@@ -186,8 +186,8 @@ html(class="no-js", ng-app="main")
             ===>null</code>
         section
           h2 Data Types
-          p Optional Typing, NOT dynamic
           ul
+            li Optional Typing, NOT dynamic
             li treated as objects
             ul
               li int treated like Integer
@@ -208,7 +208,7 @@ html(class="no-js", ng-app="main")
             println i * 2
              -> 20
 
-            i = "abc"
+            i = 'abc'
             println i * 2
              -> abcabc</code>
         section
@@ -349,7 +349,7 @@ html(class="no-js", ng-app="main")
           pre.
             <code>List dl = []
 
-            for(Integer i=1; i <4; i++){
+            for(Integer i = 1; i < 4; i++){
               dl.add(i * 2)
             }
 
@@ -407,13 +407,17 @@ html(class="no-js", ng-app="main")
             println answer</code>bonus answer:
             <code class="fragment">println (1..10).sum()</code>
         section
-          h2 Groovy Truth
+          h3 Groovy Truth
           p False values
           ul
             li null
             li Empty Set
             li Empty String
             li Zero
+        section
+          h3 Equality
+          p <b>==</b> verifies value
+          p <b>===</b> verifies object identity
         section
           pre.
             <code>List numbers = [0,1,2,3]
@@ -427,6 +431,18 @@ html(class="no-js", ng-app="main")
             -> 2
             -> 3</code>
         section
+          h2 Other Groovy Operators
+          ul
+            li Ternary Operator
+            pre.
+              <code>x ? return x : return 'something else'</code>
+            li Elvis Operator
+            pre.
+              <code>x ?: 'something else'</code>
+            li Null Safe
+            pre.
+              <code>myMap?.propertyA?.propertyB</code>
+        section
           h2 Search
           pre.
             <code>Map m = [val1: 2, val2: 4, val3: 6]
@@ -437,6 +453,18 @@ html(class="no-js", ng-app="main")
             m.findAll {it.value % 2 == 0 && it.value % 3 != 0 }
             -> [val1:2, val2:4]
             </code>
+        section
+          h3 Other List Methods
+          ul
+            li Any
+            pre.
+              <code>Map m = [val1: 2, val2: 4, val3: 6]
+              m.any { it.value % 2 == 0 }
+              -> true</code>
+            li Every
+            pre.
+              <code>m.every { it.value % 3 == 0 }
+              -> false</code>
         section
           section
             h2 Object Oriented Programming (OOP)
@@ -516,16 +544,16 @@ html(class="no-js", ng-app="main")
               import groovyx.net.http.RESTClient
               def http = new RESTClient("http://www.gr8ladies.org")
               http.get(path: '/api/companies') { resp, reader ->
-                 reader.sort { -it.percentageTotalWomen } // sort by percentage women in descending order
-                 reader[0..4].each{ // only the first 5
-                 if(it.totalEmployees) { // if the value of total employees is not 0 (to eliminate companies that didn't report that field)
-                     println 'name:' + it.name
-                     println 'country:' + it.country
-                     println 'total employees: ' + it.totalEmployees
-                     println 'total men: '+ it.totalMen
-                     println 'total women: '+ it.totalWomen + '\n'
-                 }
-               }
+                reader.sort { -it.percentageTotalWomen } // sort by percentage women in descending order
+                reader[0..4].each{ // only the first 5
+                  if(it.totalEmployees) { // if the value of total employees is not 0 (to eliminate companies that didn't report that field)
+                    println 'name:' + it.name
+                    println 'country:' + it.country
+                    println 'total employees: ' + it.totalEmployees
+                    println 'total men: '+ it.totalMen
+                    println 'total women: '+ it.totalWomen + '\n'
+                  }
+                }
               }
               return null // don't print the entire result at the end</code>
           section
@@ -543,6 +571,11 @@ html(class="no-js", ng-app="main")
                   println it + '\n'
                 }
               }</code>
+        section
+          h3 Other Cool Groovy Things
+          ul
+            li Regex
+            li MetaClass
         section
           h2 Conclusions
           ul Groovy

@@ -203,8 +203,8 @@ Hello, Open Source North!
         </section>
         <section>
           <h2>Data Types</h2>
-          <p>Optional Typing, NOT dynamic</p>
           <ul>
+            <li>Optional Typing, NOT dynamic</li>
             <li>treated as objects</li>
             <ul>
               <li>int treated like Integer</li>
@@ -227,7 +227,7 @@ println i.class.name
 println i * 2
  -> 20
  
-i = "abc"
+i = 'abc'
 println i * 2
  -> abcabc</code></pre>
         </section>
@@ -382,7 +382,7 @@ c('Open Source North', 2016)
           <h2>Basic Loops</h2>
           <pre><code>List dl = []
 
-for(Integer i=1; i <4; i++){
+for(Integer i = 1; i < 4; i++){
   dl.add(i * 2)
 }
 
@@ -440,7 +440,7 @@ println answer</code>bonus answer:
 <code class="fragment">println (1..10).sum()</code></pre>
         </section>
         <section>
-          <h2>Groovy Truth</h2>
+          <h3>Groovy Truth</h3>
           <p>False values</p>
           <ul>
             <li>null</li>
@@ -448,6 +448,11 @@ println answer</code>bonus answer:
             <li>Empty String</li>
             <li>Zero</li>
           </ul>
+        </section>
+        <section>
+          <h3>Equality</h3>
+          <p><b>==</b> verifies value</p>
+          <p><b>===</b> verifies object identity</p>
         </section>
         <section>
           <pre><code>List numbers = [0,1,2,3]
@@ -462,6 +467,17 @@ numbers.each {
 -> 3</code></pre>
         </section>
         <section>
+          <h2>Other Groovy Operators</h2>
+          <ul>
+            <li>Ternary Operator</li>
+            <pre><code>x ? return x : return 'something else'</code></pre>
+            <li>Elvis Operator</li>
+            <pre><code>x ?: 'something else'</code></pre>
+            <li>Null Safe</li>
+            <pre><code>myMap?.propertyA?.propertyB</code></pre>
+          </ul>
+        </section>
+        <section>
           <h2>Search</h2>
           <pre><code>Map m = [val1: 2, val2: 4, val3: 6]
 
@@ -471,6 +487,18 @@ m.find { it.value % 2 == 0 && it.value % 3 != 0 }
 m.findAll {it.value % 2 == 0 && it.value % 3 != 0 }
 -> [val1:2, val2:4]
 </code></pre>
+        </section>
+        <section>
+          <h3>Other List Methods</h3>
+          <ul>
+            <li>Any</li>
+            <pre><code>Map m = [val1: 2, val2: 4, val3: 6]
+m.any { it.value % 2 == 0 }
+-> true</code></pre>
+            <li>Every</li>
+            <pre><code>m.every { it.value % 3 == 0 }
+-> false</code></pre>
+          </ul>
         </section>
         <section>
           <section>
@@ -513,7 +541,7 @@ println me.fullName
         </section>
         <section>
           <h2>Script Parsing</h2>
-          <pre><code>println doubledValue(i)
+          <pre><code>println doubledValue(10)
 
 def doubledValue(x) {
   x * 2
@@ -524,7 +552,7 @@ def doubledValue(x) {
             <h2>File Processing</h2>
           </section>
           <section>
-            <h2>Creating and Writng to Files</h2>
+            <h2>Creating and Writing to Files</h2>
             <pre><code>def myFile = new File('foo.txt')
 myFile.write 'Hello, \n'
 myFile.append('Open Source North!')</code></pre>
@@ -552,16 +580,16 @@ myFile.eachLine { line ->
 import groovyx.net.http.RESTClient
 def http = new RESTClient("http://www.gr8ladies.org")
 http.get(path: '/api/companies') { resp, reader ->
-   reader.sort { -it.percentageTotalWomen } // sort by percentage women in descending order
-   reader[0..4].each{ // only the first 5
-   if(it.totalEmployees) { // if the value of total employees is not 0 (to eliminate companies that didn't report that field)
-       println 'name:' + it.name
-       println 'country:' + it.country
-       println 'total employees: ' + it.totalEmployees
-       println 'total men: '+ it.totalMen
-       println 'total women: '+ it.totalWomen + '\n'
-   }
-}
+  reader.sort { -it.percentageTotalWomen } // sort by percentage women in descending order
+  reader[0..4].each{ // only the first 5
+    if(it.totalEmployees) { // if the value of total employees is not 0 (to eliminate companies that didn't report that field)
+      println 'name:' + it.name
+      println 'country:' + it.country
+      println 'total employees: ' + it.totalEmployees
+      println 'total men: '+ it.totalMen
+      println 'total women: '+ it.totalWomen + '\n'
+    }
+  }
 }
 return null // don't print the entire result at the end</code></pre>
           </section>
@@ -580,6 +608,13 @@ http.get(path: '/jokes/random/5', query: [exclude: 'explicit']) { resp, reader -
   }
 }</code></pre>
           </section>
+        </section>
+        <section>
+          <h3>Other Cool Groovy Things</h3>
+          <ul>
+            <li>Regex</li>
+            <li>MetaClass</li>
+          </ul>
         </section>
         <section>
           <h2>Conclusions</h2>
